@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, TextInput, Pressable, Alert } from "react-native";
+import styles from "./editStyles"
 
 const EditTodo = (props) => {
  const {task} = props.route.params
@@ -10,39 +11,38 @@ const EditTodo = (props) => {
 
 
 const handleTaskEdit = (index) => {
-  
-      const todosCopy = [...props.todos];
+  if(taskEdit === ""){
+    Alert.alert("Please enter your todo!")
+  } else{
+    const todosCopy = [...props.todos];
       todosCopy[index] = taskEdit;
       props.setTodos(todosCopy)
       props.navigation.navigate("View"); 
-
+  }
    }
 
 
 
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: '#EDCFA9'}}>
       <View style={styles.inputBox}>
       <TextInput
         style={styles.input}
-        placeholder="Add Todo"
-        placeholderTextColor="#0067B1"
+        placeholder="Edit Todo"
+        placeholderTextColor="#AA4A30"
+        multiline={true}
         value={taskEdit}
         onChangeText={onChangeText}
       ></TextInput>
+      </View>
       <Pressable style={styles.submitButton} onPress={() => handleTaskEdit(props.todos.indexOf(task)) }>
-        <Text>Submit</Text>
+        <Text style={styles.submit}>Submit</Text>
       </Pressable>
      
-      </View>
     </View>
   );
 
   };
 export default EditTodo;
 
-const styles = StyleSheet.create({
-  submitButton: {
-  },
-});
 

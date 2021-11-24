@@ -5,7 +5,7 @@ import styles from "./TaskStyles";
 const Task = (props) => {
   return (
     <View style={styles.todoContent}   >
-      <Text>{props.task}</Text>
+      <Text style={styles.text}>{props.task}</Text>
     </View>
   );
 };

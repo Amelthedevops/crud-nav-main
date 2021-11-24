@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   contentView: {
     width: "100%",
+
   },
   button: {
     marginLeft: "70%",
@@ -14,7 +15,7 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 5,
+    borderRadius: 20,
   },
   buttonText: {
     color: "white",
