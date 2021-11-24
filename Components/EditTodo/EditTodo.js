@@ -21,8 +21,7 @@ const handleTaskEdit = (index) => {
   }
    }
 
-
-
+   
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: '#EDCFA9'}}>
       <View style={styles.inputBox}>
