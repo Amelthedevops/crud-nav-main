@@ -22,6 +22,23 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+  buttonsContainer: {
+   
+    flexDirection: 'row',
+    marginTop: 20,
+  
+  },
+  icon: {
+    marginLeft: 190,
+    paddingTop: 5,
+  },
+  addIcon: {
+    borderWidth: 2,
+    borderColor: '#D57149',
+    borderRadius: 20,
+    padding: 5,
+    
+  },
 });
 
 export default styles;
