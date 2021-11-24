@@ -2,6 +2,9 @@ import React from "react";
 import { StyleSheet, Pressable, Text, View, ScrollView, SafeAreaView, Alert} from "react-native";
 import styles from "./Styles.js";
 import stylesTask from "../Task/TaskStyles";
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import { Entypo } from '@expo/vector-icons'; 
+import { Ionicons } from '@expo/vector-icons'; 
 
 // Custom Components
 import Task from "../Task/Task.js";
@@ -33,6 +36,29 @@ const ViewTodos = (props) => {
    
   };
 
+  const deleteAllItem = (todos) => {
+    let clearPage = [...props.todos];
+    clearPage.splice(props.todos);
+    props.setTodos(clearPage)
+  };
+
+  const showConfirmDialogAll = (todos) => {
+    return Alert.alert(
+      "Deleting All",
+      "Are you sure you want to delete All?",
+      [
+        {
+        text: 'Yes',
+        onPress: () => {
+          deleteAllItem(todos)
+        }
+      },
+    {
+      text: "No",
+    }]
+    )
+  }
+
   return (
     
     <View
@@ -44,14 +70,25 @@ const ViewTodos = (props) => {
       }}
     >
       
-       
-        <Pressable
-          style={styles.button}
+      <View style={styles.buttonsContainer}>
+
+      <Pressable
+          style={styles.addIcon}
           onPress={() => props.navigation.navigate("Add")}
         >
-          <Text style={styles.buttonText}>Add</Text>
+          <Ionicons name="add" size={30} color="#D57149" />
         </Pressable>
 
+        <Pressable
+      style={styles.icon}
+          onPress={() => showConfirmDialogAll(props.todos) }
+        >
+          <MaterialCommunityIcons name="delete" size={35} color="#D57149"  />
+        </Pressable>
+
+      </View>
+       
+        
        
         {
             props.todos.map((task, index) => {
